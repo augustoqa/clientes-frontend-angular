@@ -4,7 +4,7 @@
       <div class="card mt-4">
         <div class="card-header">{{ titulo }}</div>
         <div class="card-body">
-          <form (ngSubmit)="create()" class="form-horizontal">
+          <form class="form-horizontal">
             <div class="mb-3">
               <label for="nombre" class="form-label col-sm-2">Nombre</label>
               <div>
@@ -41,7 +41,23 @@
 
             <div class="form-group">
               <div class="float-end">
-                <button class="btn btn-primary" role="button">Crear</button>
+                <button
+                  class="btn btn-primary"
+                  role="button"
+                  (click)="create()"
+                  *ngIf="!cliente.id; else elseBlock"
+                >
+                  Crear
+                </button>
+                <ng-template #elseBlock>
+                  <button
+                    class="btn btn-primary"
+                    role="button"
+                    (click)="update()"
+                  >
+                    Editar
+                  </button>
+                </ng-template>
               </div>
             </div>
           </form>
