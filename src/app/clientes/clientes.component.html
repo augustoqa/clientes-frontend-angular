@@ -17,6 +17,7 @@
           <th>Email</th>
           <th>Fecha</th>
           <td>Editar</td>
+          <td>Eliminar</td>
         </tr>
       </thead>
       <tbody class="table-group-divider">
@@ -31,9 +32,18 @@
               type="button"
               name="button"
               [routerLink]="['/clientes/form', cliente.id]"
-              class="btn btn-primary"
+              class="btn btn-primary btn-sm"
             >
               Editar
+            </button>
+          </td>
+          <td>
+            <button
+              type="button"
+              (click)="delete(cliente)"
+              class="btn btn-danger btn-sm"
+            >
+              Eliminar
             </button>
           </td>
         </tr>
